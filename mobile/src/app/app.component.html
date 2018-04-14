@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container navbar-default navbar-fixed-top">
+        <nav>
+            <a routerLink="/">首页</a>
+            <a (click)="showOneByOne = !showOneByOne">专业课1对1</a>
+            <a routerLink="/group">考研群</a>
+            <a (click)="showOther = !showOther">其他</a>
+        </nav>
+        <div *ngIf="showOneByOne">
+            <nav>
+                <a routerLink="/student">成为学生</a>
+                <a routerLink="/teacher">成为老师</a>
+            </nav>
+        </div>
+        <div *ngIf="showOther">
+            <nav>
+                <a routerLink="/information">考研资讯</a>
+                <a routerLink="/about">关于我们</a>
+            </nav>
+        </div>
+    </div>
+    <div *ngIf="showOneByOne && showOther" style="margin-top: 130px;"></div>
+    <div *ngIf="!showOneByOne && showOther" style="margin-top: 100px;"></div>
+    <div *ngIf="showOneByOne && !showOther" style="margin-top: 100px;"></div>
+    <div *ngIf="!showOneByOne && !showOther" style="margin-top: 50px;"></div>
+    <router-outlet></router-outlet>
+    <div class="container text-center">
+        <h1>关注我们</h1>
+        <img width="200" alt="Angular Logo" src="../assets/image/down/gongzonghao.jpg">
+        <div>
+            上海誊斐教育科技有限公司 <br/>
+            2018 All Rights Reserved <br/>
+            沪ICP备18005879号-1 <br/>
+            沪公网安备 18005879号
+        </div>
+    </div>
+</div>
